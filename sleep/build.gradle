@@ -26,6 +26,13 @@ dependencies {
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Mock final Kotlin classes (service unit tests) with idiomatic syntax.
+	testImplementation 'org.mockito:mockito-inline'
+	testImplementation 'org.mockito.kotlin:mockito-kotlin:4.1.0'
+	// Real Postgres for repository integration tests.
+	testImplementation platform('org.testcontainers:testcontainers-bom:1.17.6')
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:postgresql'
 }
 
 tasks.withType(KotlinCompile) {
